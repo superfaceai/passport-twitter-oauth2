@@ -1,0 +1,9 @@
+{
+  "name": "@superfaceai/passport-twitter-oauth2",
+  "version": "1.0.0",
+  "description": "Twitter OAuth 2.0 authentication strategy for Passport.",
+  "main": "./lib",
+  "repository": "git@github.com:superfaceai/passport-twitter-oauth2.git",
+  "author": "Superface Team",
+  "license": "MIT"
+}
