@@ -5,5 +5,17 @@
   "main": "./lib",
   "repository": "git@github.com:superfaceai/passport-twitter-oauth2.git",
   "author": "Superface Team",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha --require ./test/bootstrap/node --recursive"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "chai-passport-strategy": "^3.0.0",
+    "mocha": "^9.2.0",
+    "proxyquire": "^2.1.3"
+  },
+  "dependencies": {
+    "passport-oauth2": "^1.6.1"
+  }
 }
