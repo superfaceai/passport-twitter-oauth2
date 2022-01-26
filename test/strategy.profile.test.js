@@ -13,7 +13,7 @@ describe('TwitterOAuth2Strategy#userProfile', function () {
     strategy._oauth2.get = function (url, accessToken, callback) {
       if (
         url !=
-        'https://api.twitter.com/2/users/me?users.fields=profile_image_url,url'
+        'https://api.twitter.com/2/users/me?user.fields=profile_image_url,url'
       ) {
         return callback(new Error('incorrect url argument'));
       }
