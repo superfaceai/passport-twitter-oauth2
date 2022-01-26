@@ -8,8 +8,8 @@
   "license": "MIT",
   "scripts": {
     "test": "mocha --require ./test/bootstrap/node --recursive",
-    "format": "prettier -c ./lib",
-    "format:fix": "prettier --write ./lib"
+    "format": "prettier --check ./{lib,test}",
+    "format:fix": "prettier --write ./{lib,test}"
   },
   "devDependencies": {
     "chai": "^4.3.4",
