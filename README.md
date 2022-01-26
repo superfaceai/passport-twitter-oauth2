@@ -5,7 +5,7 @@ using the [OAuth 2.0 API](https://developer.twitter.com/en/docs/authentication/o
 
 [Twitter announced OAuth 2.0 general availability](https://twittercommunity.com/t/announcing-oauth-2-0-general-availability/163555) on 14. 12. 2021. Twitter encourages developers to use Twitter API 2.0 with OAuth 2.0 authentication.
 
-Twitter OAutn 2.0 implementation specifics:
+Twitter OAuth 2.0 implementation specifics:
 
 - [PKCE](https://datatracker.ietf.org/doc/html/rfc7636) is required
 - OAuth2 client credentials must be passed via Authorization header for private client types
