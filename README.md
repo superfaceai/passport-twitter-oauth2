@@ -111,7 +111,7 @@ The `package.json` also contains scripts (runnable by calling `yarn <script-name
 
 **Please open an issue first if you want to make larger changes**
 
-Feel free to contribute! Please follow the [Contribution Guide](CONTRIBUTION_GUIDE.md).
+Feel free to contribute! Please follow the [Contribution Guide](CONTRIBUTING.md).
 
 Note: If editing the README, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
 
