@@ -118,4 +118,5 @@ Note: If editing the README, please conform to the [standard-readme](https://git
 ## License
 
 `@superfaceai/passport-twitter-oauth2` project is licensed under the [MIT license](LICENSE).
-© 2022 Superface
+
+© 2022 Superface s.r.o.
