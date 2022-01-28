@@ -1,12 +1,8 @@
-# Contributing to Superface
+# Contribution Guidelines
 
 We welcome contributions to our [open source project on GitHub](https://github.com/superfaceai/passport-twitter-oauth2).
 
 **Please open an issue first if you want to make larger changes**
-
-## Introduction
-
-We are glad that you are interested in Superface in the way of contributing. We value the pro-community developers as you are.
 
 ## Help the community
 
@@ -41,9 +37,7 @@ If you are experiencing bug or undocumented behavior please open an Issue with b
 
 ### Contribute to documentation
 
-Help us improve Superface documentation, you can report typos, improve examples.
-
-**NOTE: If editing the README, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.**
+Help us improve the documentation, you can report typos, improve examples.
 
 ## Copyright and Licensing
 
