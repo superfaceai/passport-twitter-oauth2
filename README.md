@@ -88,7 +88,7 @@ app.get(
 
 ## Development
 
-When developing, start with cloning the repository using `git clone https://github.com/superfaceai/passport-twitter-oauth2.git` (or `git clone git@github.com:superfaceai/passport-twitter-oauth2.git` if you have repository access).
+When developing, start with cloning the repository using `git clone https://github.com/superfaceai/passport-twitter-oauth2.git`.
 
 After cloning, the dependencies must be downloaded using `yarn install` or `npm install`.
 
