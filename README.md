@@ -101,7 +101,7 @@ The `package.json` also contains scripts (runnable by calling `yarn <script-name
 
 ## Maintainers
 
-- [@Jan Halama](https://github.com/janhalama)
+- [Jan Halama](https://github.com/janhalama)
 
 ## Kudos
 
