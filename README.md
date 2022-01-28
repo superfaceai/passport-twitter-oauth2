@@ -105,7 +105,7 @@ The `package.json` also contains scripts (runnable by calling `yarn <script-name
 
 ## Kudos
 
-- [@Jared Hanson](https://github.com/jaredhanson) author of Passport.js
+- [Jared Hanson](https://github.com/jaredhanson) author of Passport.js
 
 ## Contributing
 
