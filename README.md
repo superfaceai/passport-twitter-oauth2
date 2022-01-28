@@ -49,7 +49,7 @@ passport.use(
     {
       consumerKey: TWITTER_CONSUMER_KEY,
       consumerSecret: TWITTER_CONSUMER_SECRET,
-      callbackURL: "http://127.0.0.1:3000/auth/twitter/callback",
+      callbackURL: 'http://127.0.0.1:3000/auth/twitter/callback',
     },
     function (accessToken, refreshToken, profile, done) {
       User.findOrCreate({ twitterId: profile.id }, function (err, user) {
@@ -71,17 +71,52 @@ For example, as route middleware in an [Express](http://expressjs.com/)
 application:
 
 ```javascript
-app.get("/auth/twitter", passport.authenticate("twitter"));
+app.get('/auth/twitter', passport.authenticate('twitter'));
 
 app.get(
-  "/auth/twitter/callback",
-  passport.authenticate("twitter", {
-    failureRedirect: "/login",
-    scope: ["tweet.read", "tweet.write", "users.read"],
+  '/auth/twitter/callback',
+  passport.authenticate('twitter', {
+    failureRedirect: '/login',
+    scope: ['tweet.read', 'tweet.write', 'users.read'],
   }),
   function (req, res) {
     // Successful authentication, redirect home.
-    res.redirect("/");
+    res.redirect('/');
   }
 );
 ```
+
+## Development
+
+When developing, start with cloning the repository using `git clone https://github.com/superfaceai/passport-twitter-oauth2.git`.
+
+After cloning, the dependencies must be downloaded using `yarn install` or `npm install`.
+
+Now the repository is ready for code changes.
+
+The `package.json` also contains scripts (runnable by calling `yarn <script-name>` or `npm run <script-name>`):
+
+- `format` - format the code (use `format:fix` to run autofix)
+- `test` - run tests
+
+## Maintainers
+
+- [Jan Halama](https://github.com/janhalama)
+
+## Kudos
+
+- [Jared Hanson](https://github.com/jaredhanson) author of Passport.js
+
+## Contributing
+
+**Please open an issue first if you want to make larger changes**
+
+Feel free to contribute! Please follow the [Contribution Guide](CONTRIBUTING.md).
+
+Note: If editing the README, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
+
+## License
+
+`@superfaceai/passport-twitter-oauth2` project is licensed under the [MIT license](LICENSE).
+
+© 2022 Superface s.r.o.
