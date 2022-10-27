@@ -35,7 +35,7 @@ Before using `@superfaceai/passport-twitter-oauth2`, you must register project a
 
 #### Configure Strategy
 
-The Twitter authentication strategy authenticates users using a Twitter OAuht2 access token.
+The Twitter authentication strategy authenticates users using a Twitter OAuth2 access token.
 The OAuth 2.0 Client ID and Client Secret obtained when creating
 an application are supplied as options when creating the strategy. The strategy
 also requires a `verify` callback, which receives the access token and
@@ -47,8 +47,8 @@ providing a user to complete authentication.
 passport.use(
   new TwitterStrategy(
     {
-      consumerKey: TWITTER_CONSUMER_KEY,
-      consumerSecret: TWITTER_CONSUMER_SECRET,
+      clientID: TWITTER_CLIENT_ID,
+      clientSecret: TWITTER_CLIENT_SECRET,
       callbackURL: 'http://127.0.0.1:3000/auth/twitter/callback',
     },
     function (accessToken, refreshToken, profile, done) {
