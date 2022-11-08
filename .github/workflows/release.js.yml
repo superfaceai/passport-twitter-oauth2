@@ -27,6 +27,10 @@ jobs:
       - name: Unit tests
         run: yarn test
 
+      # Build the project
+      - name: Build
+        run: yarn build
+
       # Git configuration
       - name: Git configuration
         run: |
