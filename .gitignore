@@ -13,3 +13,7 @@ dist
 
 # vuepress build output
 .vuepress/dist
+
+# Yarn logs
+yarn-debug.log*
+yarn-error.log*
