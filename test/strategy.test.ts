@@ -11,7 +11,7 @@ describe('TwitterOAuth2Strategy', function () {
           clientID: 'ABC123',
           clientSecret: 'secret',
         },
-        () => { }
+        () => {}
       );
       chai.expect(strategy.name).to.equal('twitter');
     });
@@ -26,7 +26,7 @@ describe('issuing authorization request', function () {
         clientID: 'ABC123',
         clientSecret: 'secret',
       },
-      function () { }
+      function () {}
     );
 
     (strategy as any)._oauth2.getOAuthAccessToken = function (
@@ -80,7 +80,7 @@ describe('issuing authorization request', function () {
         clientSecret: 'secret',
         callbackURL: 'https://www.example.net/auth/example/callback',
       },
-      function (_accessToken, _refreshToken, _profile, _done) { }
+      function (_accessToken, _refreshToken, _profile, _done) {}
     );
 
     let url: string;
@@ -119,7 +119,7 @@ describe('issuing authorization request', function () {
         clientSecret: 'secret',
         callbackURL: 'https://www.example.net/auth/example/callback',
       },
-      function (_accessToken, _refreshToken, _profile, _done) { }
+      function (_accessToken, _refreshToken, _profile, _done) {}
     );
 
     let url: string;

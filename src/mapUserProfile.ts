@@ -1,4 +1,4 @@
-import { Profile } from './models/profile'
+import { Profile } from './models/profile';
 import { TwitterUserInfo } from './models/twitterUserInfo';
 
 export const mapUserProfile = (json: string | TwitterUserInfo): Profile => {
@@ -9,16 +9,17 @@ export const mapUserProfile = (json: string | TwitterUserInfo): Profile => {
     parsedJson = json;
   }
 
-  const photos = parsedJson.profile_image_url ? [{ value: parsedJson.profile_image_url }] : [];
+  const photos = parsedJson.profile_image_url
+    ? [{ value: parsedJson.profile_image_url }]
+    : [];
   const profile: Profile = {
     provider: 'twitter',
     id: parsedJson.id,
     username: parsedJson.username,
     displayName: parsedJson.name,
     profileUrl: parsedJson.url,
-    photos
-  }
+    photos,
+  };
 
   return profile;
-}
-
+};

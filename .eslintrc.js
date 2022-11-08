@@ -6,7 +6,7 @@ module.exports = {
         project: ['./tsconfig.json'],
         createDefaultProgram: true,
     },
-    plugins: ['@typescript-eslint', 'jest', 'simple-import-sort'],
+    plugins: ['@typescript-eslint', 'jest', 'simple-import-sort', 'prettier'],
     extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/eslint-recommended',
@@ -14,6 +14,7 @@ module.exports = {
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'plugin:import/errors',
         'plugin:import/warnings',
+        'prettier'
     ],
     rules: {
         'newline-before-return': 'error',
@@ -34,6 +35,7 @@ module.exports = {
         '@typescript-eslint/no-empty-function': 'off',
         '@typescript-eslint/require-await': 'off',
         '@typescript-eslint/restrict-template-expressions': 'off',
+        "prettier/prettier": ["error"]
     },
     settings: {
         'import/parsers': {
