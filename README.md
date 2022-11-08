@@ -8,7 +8,7 @@ using the [OAuth 2.0 API](https://developer.twitter.com/en/docs/authentication/o
 Twitter OAuth 2.0 implementation specifics:
 
 - [PKCE](https://datatracker.ietf.org/doc/html/rfc7636) is required
-- OAuth2 client credentials must be passed via Authorization header for private client types
+- OAuth2 client credentials must be passed via Authorization header for `confidential` client types
 
 This module lets you authenticate using Twitter in your Node.js applications.
 By plugging into Passport, Twitter authentication can be easily and
@@ -47,6 +47,7 @@ providing a user to complete authentication.
 passport.use(
   new TwitterStrategy(
     {
+      clientType: 'confidential', //depends on your Twitter app settings, valid values are `confidential` or `public`
       clientID: TWITTER_CLIENT_ID,
       clientSecret: TWITTER_CLIENT_SECRET,
       callbackURL: 'http://127.0.0.1:3000/auth/twitter/callback',
@@ -97,6 +98,8 @@ Now the repository is ready for code changes.
 The `package.json` also contains scripts (runnable by calling `yarn <script-name>` or `npm run <script-name>`):
 
 - `format` - format the code (use `format:fix` to run autofix)
+- `build` - transpile TypeScript into JavaScript
+- `lint` - run linter
 - `test` - run tests
 
 ## Maintainers

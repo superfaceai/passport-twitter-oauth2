@@ -1,66 +1,57 @@
-const { expect } = require('chai');
-const chai = require('chai');
-const uri = require('url');
-TwitterOAuth2Strategy = require('../lib/strategy');
+import chai, { expect } from 'chai';
+
+import { Strategy } from '../src';
 
 describe('TwitterOAuth2Strategy', function () {
   describe('constructed', function () {
     it('should be named twitter', function () {
-      const strategy = new TwitterOAuth2Strategy(
+      const strategy = new Strategy(
         {
+          clientType: 'confidential',
           clientID: 'ABC123',
           clientSecret: 'secret',
         },
-        () => {}
+        () => { }
       );
-      expect(strategy.name).to.equal('twitter');
-    });
-  });
-
-  describe('constructed with undefined options', function () {
-    it('should throw', function () {
-      expect(() => {
-        new TwitterOAuth2Strategy(undefined, function () {});
-      }).to.throw(Error);
-    });
-  });
-
-  describe('constructed without a verify callback', function () {
-    it('should throw', function () {
-      expect(function () {
-        new TwitterOAuth2Strategy({
-          clientID: 'ABC123',
-          clientSecret: 'secret',
-        });
-      }).to.throw(TypeError, 'OAuth2Strategy requires a verify callback');
+      chai.expect(strategy.name).to.equal('twitter');
     });
   });
 });
 
 describe('issuing authorization request', function () {
   describe('that redirects to service provider without redirect URI', () => {
-    var strategy = new TwitterOAuth2Strategy(
+    const strategy = new Strategy(
       {
+        clientType: 'confidential',
         clientID: 'ABC123',
         clientSecret: 'secret',
       },
-      function () {}
+      function () { }
     );
 
-    strategy._oauth2.getOAuthAccessToken = function (extraParams, callback) {
+    (strategy as any)._oauth2.getOAuthAccessToken = function (
+      _extraParams: any,
+      callback: (
+        err: any,
+        access_token: string,
+        refresh_token: string,
+        results: any
+      ) => void
+    ) {
       callback(null, 'hh5s93j4hdidpola', 'hdhd0244k9j7ao03', {});
     };
 
-    var url;
+    let url: string;
 
     before(function (done) {
-      const test = chai.passport
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      (chai as any).passport
         .use(strategy)
-        .redirect(function (u) {
+        .redirect(function (u: string) {
           url = u;
           done();
         })
-        .request(function (req) {
+        .request(function (req: any) {
           req.session = {};
         })
         .authenticate();
@@ -82,28 +73,30 @@ describe('issuing authorization request', function () {
   });
 
   describe('that redirects to service provider with redirect URI', function () {
-    var strategy = new TwitterOAuth2Strategy(
+    const strategy = new Strategy(
       {
+        clientType: 'confidential',
         clientID: 'ABC123',
         clientSecret: 'secret',
         callbackURL: 'https://www.example.net/auth/example/callback',
       },
-      function (accessToken, refreshToken, profile, done) {}
+      function (_accessToken, _refreshToken, _profile, _done) { }
     );
 
-    var url;
+    let url: string;
 
     before(function (done) {
-      chai.passport
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      (chai as any).passport
         .use(strategy)
-        .error(e => {
+        .error(() => {
           done();
         })
-        .redirect((u, s) => {
+        .redirect((u: any, _s: any) => {
           url = u;
           done();
         })
-        .request(function (req) {
+        .request(function (req: any) {
           req.session = {};
         })
         .authenticate();
@@ -119,25 +112,27 @@ describe('issuing authorization request', function () {
   });
 
   describe('that redirects to service provider with scope option', function () {
-    var strategy = new TwitterOAuth2Strategy(
+    const strategy = new Strategy(
       {
+        clientType: 'confidential',
         clientID: 'ABC123',
         clientSecret: 'secret',
         callbackURL: 'https://www.example.net/auth/example/callback',
       },
-      function (accessToken, refreshToken, profile, done) {}
+      function (_accessToken, _refreshToken, _profile, _done) { }
     );
 
-    var url;
+    let url: string;
 
     before(function (done) {
-      chai.passport
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      (chai as any).passport
         .use(strategy)
-        .redirect(function (u) {
+        .redirect(function (u: any) {
           url = u;
           done();
         })
-        .request(function (req) {
+        .request(function (req: any) {
           req.session = {};
         })
         .authenticate({ scope: 'email' });
