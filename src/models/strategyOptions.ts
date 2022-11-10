@@ -1,29 +1,20 @@
-import { OutgoingHttpHeaders } from 'http';
-import { StateStore } from 'passport-oauth2';
+import { StrategyOptions, StrategyOptionsWithRequest } from 'passport-oauth2';
 
-interface StrategyOptionsBase {
+interface TwitterStrategyOptionsBase {
   clientType: 'public' | 'confidential' | 'private'; // OAuth 2.0 client types as defined here: https://datatracker.ietf.org/doc/html/rfc6749#section-2.1 and configured in Twitter developer portal
   clientID: string;
   clientSecret: string;
   userProfileUrl?: string;
-  authorizationURL?: string;
-  tokenURL?: string;
-  callbackURL?: string | undefined;
-  customHeaders?: OutgoingHttpHeaders | undefined;
-  scope?: string | string[] | undefined;
-  scopeSeparator?: string | undefined;
-  sessionKey?: string | undefined;
-  store?: StateStore | undefined;
-  state?: unknown;
-  skipUserProfile?: unknown;
-  pkce?: boolean | undefined;
-  proxy?: unknown;
 }
 
-export interface StrategyOption extends StrategyOptionsBase {
+export interface StrategyOption
+  extends TwitterStrategyOptionsBase,
+    StrategyOptions {
   passReqToCallback?: false | undefined;
 }
 
-export interface StrategyOptionWithRequest extends StrategyOptionsBase {
+export interface StrategyOptionWithRequest
+  extends TwitterStrategyOptionsBase,
+    StrategyOptionsWithRequest {
   passReqToCallback: true;
 }
