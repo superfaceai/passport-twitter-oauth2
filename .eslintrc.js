@@ -23,13 +23,7 @@ module.exports = {
         'import/first': 'error',
         'import/newline-after-import': 'error',
         'import/no-duplicates': 'error',
-        'lines-between-class-members': 'off',
         '@typescript-eslint/member-ordering': 'error',
-        '@typescript-eslint/lines-between-class-members': [
-            'error',
-            'always',
-            { exceptAfterSingleLine: true, exceptAfterOverload: true },
-        ],
         '@typescript-eslint/no-empty-function': 'off',
         '@typescript-eslint/require-await': 'off',
         '@typescript-eslint/restrict-template-expressions': 'off',
