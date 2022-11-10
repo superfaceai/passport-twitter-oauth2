@@ -17,7 +17,6 @@ module.exports = {
         'prettier'
     ],
     rules: {
-        'newline-before-return': 'error',
         '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
         'simple-import-sort/imports': 'error',
         'sort-imports': 'off',
