@@ -19,7 +19,9 @@
     "lint": "eslint .",
     "lint:fix": "yarn lint --fix",
     "format": "prettier --check ./{src/**/*.ts,test/**/*.test.ts}",
-    "format:fix": "prettier --write ./{src/**/*.ts,test/**/*.test.ts}"
+    "format:fix": "prettier --write ./{src/**/*.ts,test/**/*.test.ts}",
+    "prebuild": "yarn clean",
+    "prepack": "yarn build"
   },
   "devDependencies": {
     "@types/chai": "^4.3.3",
