@@ -182,3 +182,5 @@ export class Strategy extends OAuth2Strategy {
     });
   }
 }
+
+export default Strategy;

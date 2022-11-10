@@ -1,4 +1,4 @@
 // Types definitions export.
 export * from './models';
-// Strategy export.
-export * from './strategy';
+// Strategy default and named export.
+export { default, Strategy } from './strategy';
