@@ -23,7 +23,6 @@ module.exports = {
         'import/first': 'error',
         'import/newline-after-import': 'error',
         'import/no-duplicates': 'error',
-        'no-multiple-empty-lines': 'error',
         'lines-between-class-members': 'off',
         '@typescript-eslint/member-ordering': 'error',
         '@typescript-eslint/lines-between-class-members': [
