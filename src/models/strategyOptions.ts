@@ -2,7 +2,7 @@ import { OutgoingHttpHeaders } from 'http';
 import { StateStore } from 'passport-oauth2';
 
 interface StrategyOptionsBase {
-  clientType: 'public' | 'confidential' | 'private'; //OAhut 2.0 client types as defined here: https://datatracker.ietf.org/doc/html/rfc6749#section-2.1 and configured in Twitter developer portal
+  clientType: 'public' | 'confidential' | 'private'; // OAuth 2.0 client types as defined here: https://datatracker.ietf.org/doc/html/rfc6749#section-2.1 and configured in Twitter developer portal
   clientID: string;
   clientSecret: string;
   userProfileUrl?: string;
