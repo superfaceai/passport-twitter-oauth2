@@ -6,7 +6,7 @@ module.exports = {
         project: ['./tsconfig.json'],
         createDefaultProgram: true,
     },
-    plugins: ['@typescript-eslint', 'jest', 'simple-import-sort', 'prettier'],
+    plugins: ['@typescript-eslint', 'jest', 'simple-import-sort', 'prettier', 'eslint-plugin-tsdoc'],
     extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/eslint-recommended',
@@ -27,7 +27,8 @@ module.exports = {
         '@typescript-eslint/no-empty-function': 'off',
         '@typescript-eslint/require-await': 'off',
         '@typescript-eslint/restrict-template-expressions': 'off',
-        "prettier/prettier": ["error"]
+        'prettier/prettier': 'error',
+        'tsdoc/syntax': 'error'
     },
     settings: {
         'import/parsers': {

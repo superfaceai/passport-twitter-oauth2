@@ -12,6 +12,14 @@ export class Strategy extends OAuth2Strategy {
   /**
    * Twitter strategy constructor
    *
+   * Required options:
+   *
+   *   - `clientID` - your Twitter application's App ID
+   *   - `clientSecret` - your Twitter application's App Secret
+   *   - `callbackURL` - URL to which Twitter will redirect the user after granting authorization
+   *   - `clientType` - your Twitter application (client) type, either `public` or `confidental`
+   *
+   * @remarks
    * The Twitter authentication strategy authenticates requests by delegating to
    * Twitter using the OAuth 2.0 protocol.
    *
@@ -20,26 +28,21 @@ export class Strategy extends OAuth2Strategy {
    * callback supplying a `user`, which should be set to `false` if the
    * credentials are not valid.  If an exception occured, `err` should be set.
    *
-   * Required options:
-   *   - `clientID`      your Twitter application's App ID
-   *   - `clientSecret`  your Twitter application's App Secret
-   *   - `callbackURL`   URL to which Twitter will redirect the user after granting authorization
-   *   - `clientType`    your Twitter application (client) type, either `public` or `confidental`
-   *
-   * Examples:
-   *
-   *     passport.use(new TwitterStrategy({
-   *         clientType: 'confidential',
-   *         clientID: 'client-identification',
-   *         clientSecret: 'secret'
-   *         callbackURL: 'https://www.example.net/auth/twitter/callback'
-   *       },
-   *       function(accessToken, refreshToken, profile, cb) {
-   *         User.findOrCreate(..., function (err, user) {
-   *           cb(err, user);
-   *         });
-   *       }
-   *     ));
+   * @example
+   * ```
+   * passport.use(new TwitterStrategy({
+   *     clientType: 'confidential',
+   *     clientID: 'client-identification',
+   *     clientSecret: 'secret'
+   *     callbackURL: 'https://www.example.net/auth/twitter/callback'
+   *   },
+   *   function(accessToken, refreshToken, profile, cb) {
+   *     User.findOrCreate(..., function (err, user) {
+   *       cb(err, user);
+   *     });
+   *   }
+   * ));
+   * ```
    */
   constructor(
     options: StrategyOption,
@@ -109,6 +112,7 @@ export class Strategy extends OAuth2Strategy {
   /**
    * Retrieve user profile from Twitter.
    *
+   * @remarks
    * This function fetches Twitter user info and maps it to normalized profile,
    * with the following properties parsed from Twitter user info response:
    *
