@@ -105,7 +105,7 @@ export class Strategy extends OAuth2Strategy {
 
     this.name = 'twitter';
     this._userProfileURL =
-      options.userProfileUrl ||
+      options.userProfileURL ||
       'https://api.twitter.com/2/users/me?user.fields=profile_image_url,url';
   }
 
