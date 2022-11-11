@@ -111,7 +111,7 @@ describe('issuing authorization request', function () {
     });
   });
 
-  describe('that redirects to service provider with scope option', function () {
+  describe('that redirects to service provider with scope option passed in authenticate function', function () {
     const strategy = new Strategy(
       {
         clientType: 'confidential',
@@ -135,13 +135,119 @@ describe('issuing authorization request', function () {
         .request(function (req: any) {
           req.session = {};
         })
-        .authenticate({ scope: 'email' });
+        .authenticate({ scope: ['tweet.read', 'tweet.write'] });
     });
 
     it('should be redirected with scope query parameter', function () {
       const parsedUrl = new URL(url);
 
-      expect(parsedUrl.searchParams.get('scope')).to.equal('email');
+      expect(parsedUrl.searchParams.get('scope')).to.equal(
+        'tweet.read tweet.write users.read'
+      );
+    });
+  });
+
+  describe('that redirects to service provider with scope option in strategy constructor', function () {
+    const strategy = new Strategy(
+      {
+        clientType: 'confidential',
+        clientID: 'ABC123',
+        clientSecret: 'secret',
+        callbackURL: 'https://www.example.net/auth/example/callback',
+        skipUserProfile: true,
+        scope: ['tweet.read', 'tweet.write'],
+      },
+      function (_accessToken, _refreshToken, _profile, _done) {}
+    );
+
+    describe('when not using scope option in authenticate function', function () {
+      let url: string;
+
+      before(function (done) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+        (chai as any).passport
+          .use(strategy)
+          .redirect(function (u: any) {
+            url = u;
+            done();
+          })
+          .request(function (req: any) {
+            req.session = {};
+          })
+          .authenticate();
+      });
+
+      it('should be redirected with scope query parameter set to tweet.read tweet.write', function () {
+        const parsedUrl = new URL(url);
+
+        expect(parsedUrl.searchParams.get('scope')).to.equal(
+          'tweet.read tweet.write'
+        );
+      });
+    });
+
+    describe('when passing additional scopes via authenticate function options', function () {
+      let url: string;
+
+      before(function (done) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+        (chai as any).passport
+          .use(strategy)
+          .redirect(function (u: any) {
+            url = u;
+            done();
+          })
+          .request(function (req: any) {
+            req.session = {};
+          })
+          .authenticate({ scope: 'follows.read' });
+      });
+
+      it('should be redirected with scope query parameter set to merged scopes from authenticate fuction and strategy constructor', function () {
+        const parsedUrl = new URL(url);
+
+        expect(parsedUrl.searchParams.get('scope')).to.equal(
+          'follows.read tweet.read tweet.write'
+        );
+      });
+    });
+  });
+
+  describe('that redirects to service provider with valid scopes with skipUserProfile option disabled in strategy constructor', function () {
+    const strategy = new Strategy(
+      {
+        clientType: 'confidential',
+        clientID: 'ABC123',
+        clientSecret: 'secret',
+        callbackURL: 'https://www.example.net/auth/example/callback',
+        skipUserProfile: false,
+        scope: ['tweet.read', 'tweet.write'],
+      },
+      function (_accessToken, _refreshToken, _profile, _done) {}
+    );
+
+    let url: string;
+
+    before(function (done) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      (chai as any).passport
+        .use(strategy)
+        .redirect(function (u: any) {
+          url = u;
+          done();
+        })
+        .request(function (req: any) {
+          req.session = {};
+        })
+        .authenticate();
+    });
+
+    it('should be redirected with scope query parameter set to users.read tweet.read tweet.write', function () {
+      const parsedUrl = new URL(url);
+
+      expect(parsedUrl.searchParams.get('scope')).to.equal(
+        'users.read tweet.read tweet.write'
+      );
     });
   });
 });

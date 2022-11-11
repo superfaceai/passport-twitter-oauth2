@@ -1,13 +1,16 @@
+import { Request } from 'express';
 import { Strategy as OAuth2Strategy } from 'passport-oauth2';
 
 import { mapUserProfile } from './mapUserProfile';
 import { Profile, ProfileWithMetaData } from './models/profile';
-import { StrategyOptions } from './models/strategyOptions';
+import { AuthenticateOptions, StrategyOptions } from './models/strategyOptions';
 import { TwitterError } from './models/twitterError';
 import { TwitterUserInfoResponse } from './models/twitterUserInfo';
 
 export class Strategy extends OAuth2Strategy {
   _userProfileURL: string;
+  _skipUserProfile: unknown;
+  _scope: Array<string>;
 
   /**
    * Twitter strategy constructor
@@ -60,12 +63,6 @@ export class Strategy extends OAuth2Strategy {
     const tokenURL =
       options.tokenURL || 'https://api.twitter.com/2/oauth2/token';
 
-    let scope = options.scope || [];
-    if ('string' === typeof scope) {
-      scope = [scope];
-    }
-    options.scope = Array.from(new Set(scope));
-
     // Twitter requires clients to use PKCE (RFC 7636)
     options.pkce = true;
 
@@ -107,6 +104,11 @@ export class Strategy extends OAuth2Strategy {
     this._userProfileURL =
       options.userProfileURL ||
       'https://api.twitter.com/2/users/me?user.fields=profile_image_url,url';
+    this._skipUserProfile =
+      options.skipUserProfile === undefined ? false : options.skipUserProfile;
+
+    const scope = options.scope || [];
+    this._scope = Array.isArray(scope) ? scope : [scope];
   }
 
   /**
@@ -184,6 +186,36 @@ export class Strategy extends OAuth2Strategy {
 
       done(null, userProfileWithMetadata);
     });
+  }
+
+  /**
+   * Authenticate request by delegating to a service provider using OAuth 2.0.
+   */
+  authenticate(req: Request, options?: AuthenticateOptions) {
+    options = options || {};
+    let skipUserProfile = false;
+
+    if (
+      typeof this._skipUserProfile !== 'function' ||
+      this._skipUserProfile.length === 1
+    ) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      skipUserProfile =
+        typeof this._skipUserProfile === 'function'
+          ? this._skipUserProfile()
+          : this._skipUserProfile;
+    }
+
+    let scope = options.scope || [];
+    if (!Array.isArray(scope)) {
+      scope = [scope];
+    }
+    if (!skipUserProfile) {
+      scope.push('users.read');
+    }
+    options.scope = Array.from(new Set([...scope, ...this._scope]));
+
+    return super.authenticate(req, options);
   }
 }
 

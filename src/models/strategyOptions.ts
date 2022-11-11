@@ -26,3 +26,11 @@ export interface StrategyOptionWithRequest
     > {
   passReqToCallback: true;
 }
+
+export interface AuthenticateOptions {
+  scope?: string[] | string | undefined;
+  state?: unknown | undefined;
+  callbackURL?: string | undefined;
+  failureRedirect?: string | undefined;
+  failureMessage?: boolean | undefined;
+}
