@@ -76,7 +76,7 @@ export class Strategy extends OAuth2Strategy {
       options.clientType === 'confidential' ||
       options.clientType === 'private'
     ) {
-      //private client type is deprecated
+      // Private client type is deprecated
       // Twitter requires that OAuth2 client credentials are passed in Authorization header for confidential client types.
       // This is workaround as passport-oauth2 and node-oauth libs doesn't support it.
       // See Twitter docs: https://developer.twitter.com/en/docs/authentication/oauth-2-0/user-access-token
