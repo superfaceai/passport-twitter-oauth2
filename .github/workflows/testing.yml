@@ -36,9 +36,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build the project
-        run: yarn build
-
       - name: Run format validation
         run: yarn format
 
