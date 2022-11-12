@@ -21,7 +21,7 @@
     "format": "prettier --check ./{src/**/*.ts,test/**/*.test.ts}",
     "format:fix": "prettier --write ./{src/**/*.ts,test/**/*.test.ts}",
     "prebuild": "yarn clean",
-    "prepack": "yarn build"
+    "prepare": "yarn build"
   },
   "devDependencies": {
     "@types/chai": "^4.3.3",
