@@ -142,7 +142,7 @@ describe('issuing authorization request', function () {
       const parsedUrl = new URL(url);
 
       expect(parsedUrl.searchParams.get('scope')).to.equal(
-        'tweet.read tweet.write users.read'
+        'tweet.read tweet.write'
       );
     });
   });
@@ -186,7 +186,7 @@ describe('issuing authorization request', function () {
       });
     });
 
-    describe('when passing additional scopes via authenticate function options', function () {
+    describe('when passing scopes via authenticate function options', function () {
       let url: string;
 
       before(function (done) {
@@ -203,17 +203,15 @@ describe('issuing authorization request', function () {
           .authenticate({ scope: 'follows.read' });
       });
 
-      it('should be redirected with scope query parameter set to merged scopes from authenticate fuction and strategy constructor', function () {
+      it('should be redirected with scope query parameter set to authenticate option scopes', function () {
         const parsedUrl = new URL(url);
 
-        expect(parsedUrl.searchParams.get('scope')).to.equal(
-          'follows.read tweet.read tweet.write'
-        );
+        expect(parsedUrl.searchParams.get('scope')).to.equal('follows.read');
       });
     });
   });
 
-  describe('that redirects to service provider with valid scopes with skipUserProfile option disabled in strategy constructor', function () {
+  describe('that redirects to service provider with skipUserProfile option disabled in strategy constructor', function () {
     const strategy = new Strategy(
       {
         clientType: 'confidential',
@@ -246,7 +244,7 @@ describe('issuing authorization request', function () {
       const parsedUrl = new URL(url);
 
       expect(parsedUrl.searchParams.get('scope')).to.equal(
-        'users.read tweet.read tweet.write'
+        'tweet.read tweet.write users.read'
       );
     });
   });

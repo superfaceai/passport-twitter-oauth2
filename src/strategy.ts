@@ -1,16 +1,13 @@
-import { Request } from 'express';
 import { Strategy as OAuth2Strategy } from 'passport-oauth2';
 
 import { mapUserProfile } from './mapUserProfile';
 import { Profile, ProfileWithMetaData } from './models/profile';
-import { AuthenticateOptions, StrategyOptions } from './models/strategyOptions';
+import { StrategyOptions } from './models/strategyOptions';
 import { TwitterError } from './models/twitterError';
 import { TwitterUserInfoResponse } from './models/twitterUserInfo';
 
 export class Strategy extends OAuth2Strategy {
   _userProfileURL: string;
-  _skipUserProfile: unknown;
-  _scope: Array<string>;
 
   /**
    * Twitter strategy constructor
@@ -104,11 +101,12 @@ export class Strategy extends OAuth2Strategy {
     this._userProfileURL =
       options.userProfileURL ||
       'https://api.twitter.com/2/users/me?user.fields=profile_image_url,url';
-    this._skipUserProfile =
-      options.skipUserProfile === undefined ? false : options.skipUserProfile;
 
-    const scope = options.scope || [];
-    this._scope = Array.isArray(scope) ? scope : [scope];
+    let scope = options.scope || [];
+    if (!Array.isArray(scope)) {
+      scope = [scope];
+    }
+    options.scope = this.addDefaultScopes(scope, options);
   }
 
   /**
@@ -188,34 +186,27 @@ export class Strategy extends OAuth2Strategy {
     });
   }
 
-  /**
-   * Authenticate request by delegating to a service provider using OAuth 2.0.
-   */
-  authenticate(req: Request, options?: AuthenticateOptions) {
-    options = options || {};
+  addDefaultScopes(scopes: string[] | Array<string>, options: StrategyOptions) {
     let skipUserProfile = false;
+    const skipUserProfileOption = options.skipUserProfile as unknown;
 
     if (
-      typeof this._skipUserProfile !== 'function' ||
-      this._skipUserProfile.length === 1
+      typeof skipUserProfileOption === 'function' &&
+      skipUserProfileOption.length === 1
     ) {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      skipUserProfile =
-        typeof this._skipUserProfile === 'function'
-          ? this._skipUserProfile()
-          : this._skipUserProfile;
+      skipUserProfile = skipUserProfileOption();
     }
 
-    let scope = options.scope || [];
-    if (!Array.isArray(scope)) {
-      scope = [scope];
+    if (typeof skipUserProfileOption !== 'function') {
+      skipUserProfile = !!skipUserProfileOption;
     }
+
     if (!skipUserProfile) {
-      scope.push('users.read');
+      scopes.push('users.read');
     }
-    options.scope = Array.from(new Set([...scope, ...this._scope]));
 
-    return super.authenticate(req, options);
+    return scopes;
   }
 }
 
