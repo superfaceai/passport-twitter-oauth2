@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Typescript type definitions
 
 ### Changed
+- **BREAKING CHANGE** `Strategy` is exported as ES6 default export
 - `users.read` scope is added only with `skipUserProfile` option disabled 
 
 ## 1.1.0 - 2022-10-21
