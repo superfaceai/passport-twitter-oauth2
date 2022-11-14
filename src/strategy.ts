@@ -186,7 +186,7 @@ export class Strategy extends OAuth2Strategy {
     });
   }
 
-  addDefaultScopes(scopes: string[] | Array<string>, options: StrategyOptions) {
+  addDefaultScopes(scopes: string[], options: StrategyOptions) {
     let skipUserProfile = false;
     const skipUserProfileOption = options.skipUserProfile as unknown;
 
