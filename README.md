@@ -1,4 +1,11 @@
-# Twitter OAuth 2.0 Strategy for Passport (`@superfaceai/passport-twitter-oauth2`)
+# Twitter OAuth 2.0 Strategy for Passport
+
+**`@superfaceai/passport-twitter-oauth2`**
+
+[![npm](https://img.shields.io/npm/v/@superfaceai/passport-twitter-oauth2)](https://www.npmjs.com/package/@superfaceai/passport-twitter-oauth2)
+[![license](https://img.shields.io/npm/l/@superfaceai/passport-twitter-oauth2)](LICENSE)
+![TypeScript](https://img.shields.io/static/v1?message=TypeScript&&logoColor=ffffff&color=007acc&labelColor=5c5c5c&label=built%20with)
+[![Discord](https://img.shields.io/discord/819563244418105354?logo=discord&logoColor=fff)](https://sfc.is/discord)
 
 [Passport](http://passportjs.org/) strategy for authenticating with Twitter using [OAuth 2.0](https://developer.twitter.com/en/docs/authentication/oauth-2-0).
 
