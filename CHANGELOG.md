@@ -10,11 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - `confidential` client type, to comply with RFC6749 terminology, `private` client type is deprecated
-- Typescript type definitions
+- TypeScript type definitions
 
 ### Changed
 
-- **BREAKING CHANGE** `Strategy` is exported as ES6 default export
 - `users.read` scope is added only with `skipUserProfile` option disabled
 
 ## 1.1.0 - 2022-10-21
