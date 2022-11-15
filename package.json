@@ -2,9 +2,8 @@
   "name": "@superfaceai/passport-twitter-oauth2",
   "version": "1.1.0",
   "description": "Twitter OAuth 2.0 authentication strategy for Passport.",
-  "main": "dist/index.js",
   "source": "src/index.ts",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs",
   "repository": "git@github.com:superfaceai/passport-twitter-oauth2.git",
   "author": "Superface Team",
   "license": "MIT",
@@ -13,13 +12,13 @@
     "dist/**/*"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.release.json --outDir dist",
+    "build": "tsc -p tsconfig.release.json",
     "clean": "rimraf dist/",
-    "test": "ts-mocha -r ./test/bootstrap/node.js --recursive 'test/**/*.ts'",
+    "test": "ts-mocha -p tsconfig.json -r ./test/bootstrap/node.js --recursive 'test/**/*.{js,ts,cjs,mjs}'",
     "lint": "eslint .",
     "lint:fix": "yarn lint --fix",
-    "format": "prettier --check ./{src/**/*.ts,test/**/*.test.ts}",
-    "format:fix": "prettier --write ./{src/**/*.ts,test/**/*.test.ts}",
+    "format": "prettier --check ./{src/**/*,test/**/*}",
+    "format:fix": "prettier --write ./{src/**/*,test/**/*}",
     "prebuild": "yarn clean",
     "prepare": "yarn build"
   },

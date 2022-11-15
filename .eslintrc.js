@@ -1,5 +1,8 @@
 module.exports = {
   root: true,
+  env: {
+    node: true,
+  },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     tsconfigRootDir: __dirname,
@@ -38,7 +41,7 @@ module.exports = {
   },
   settings: {
     'import/parsers': {
-      '@typescript-eslint/parser': ['.ts'],
+      '@typescript-eslint/parser': ['.ts', '.cts', '.mts'],
     },
     'import/resolver': {
       typescript: {
@@ -48,11 +51,20 @@ module.exports = {
   },
   overrides: [
     {
-      files: '*.test.ts',
+      files: '*.test.{js,ts,mjs,cjs}',
+      env: {
+        mocha: true,
+      },
       rules: {
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-unsafe-assignment': 'off',
         '@typescript-eslint/no-unsafe-member-access': 'off',
+      },
+    },
+    {
+      files: '*.cjs',
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
       },
     },
   ],

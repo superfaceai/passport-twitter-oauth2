@@ -1,8 +1,8 @@
-import { expect } from 'chai';
-
-import StrategyDefaultImport, {
-  Strategy as StrategyNamedImport,
-} from '../dist';
+/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { Strategy: StrategyNamedImport } = require('..');
+const StrategyDefaultImport = require('..');
 
 describe('@superfaceai/passport-twitter-oauth2', function () {
   it('should export named Strategy constructor', function () {
