@@ -1,4 +1,4 @@
 dist/*
 node_modules/*
 .eslintrc.js
-test/bootstrap/node.js
+test/bootstrap/*

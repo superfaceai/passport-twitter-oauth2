@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
+    "outDir": "dist",
     "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "lib": ["ESNext"],
-    "rootDir": "./src",
     "module": "CommonJS",
     "moduleResolution": "node",
     "sourceMap": true,
@@ -12,5 +12,5 @@
     "target": "es2015",
     "typeRoots": ["node_modules/@types"]
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*"]
 }

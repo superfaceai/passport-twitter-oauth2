@@ -1,2 +1,6 @@
-export * from './profile';
-export * from './strategyOptions';
+export type { Profile, ProfileWithMetaData } from './profile';
+export type {
+  StrategyOptions,
+  StrategyOptionWithRequest,
+  AuthenticateOptions,
+} from './strategyOptions';

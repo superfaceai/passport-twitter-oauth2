@@ -209,5 +209,3 @@ export class Strategy extends OAuth2Strategy {
     return scopes;
   }
 }
-
-export default Strategy;

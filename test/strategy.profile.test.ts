@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 
-import { Strategy } from '../src';
 import { ProfileWithMetaData } from '../src/models/profile';
+import { Strategy } from '../src/strategy';
 
 describe('TwitterOAuth2Strategy#userProfile', function () {
   describe('fetched from default endpoint', function () {

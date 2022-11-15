@@ -1,6 +1,6 @@
 import chai, { expect } from 'chai';
 
-import { Strategy } from '../src';
+import { Strategy } from '../src/strategy';
 
 describe('TwitterOAuth2Strategy', function () {
   describe('constructed', function () {

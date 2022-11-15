@@ -1,8 +1,8 @@
 import { expect } from 'chai';
 import * as fs from 'fs';
 
-import { Profile } from '../src';
 import { mapUserProfile } from '../src/mapUserProfile';
+import type { Profile } from '../src/models';
 
 describe('mapUserProfile', function () {
   describe('profile with image url', function () {
