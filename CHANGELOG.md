@@ -7,16 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-The module was **rewritten to TypeScript.** It should be fully backwards compatible, but if you run into any issues, [please report them](https://github.com/superfaceai/passport-twitter-oauth2/issues).
+### Changed
+
+- **The module was rewritten to TypeScript.** It should be fully backwards compatible, but if you run into any issues, [please report them](https://github.com/superfaceai/passport-twitter-oauth2/issues).
+- `users.read` scope is added only with `skipUserProfile` option disabled
 
 ### Added
 
-- `confidential` client type, to comply with RFC6749 terminology, `private` client type is deprecated
+- `confidential` client type, to comply with RFC6749 terminology
 - TypeScript type definitions
 
-### Changed
+### Deprecated
 
-- `users.read` scope is added only with `skipUserProfile` option disabled
+- `private` client type
 
 ## 1.1.0 - 2022-10-21
 
