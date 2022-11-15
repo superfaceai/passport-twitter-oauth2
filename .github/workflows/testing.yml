@@ -39,5 +39,8 @@ jobs:
       - name: Run format validation
         run: yarn format
 
+      - name: Run linter validation
+        run: yarn lint
+
       - name: Run unit tests
         run: yarn test

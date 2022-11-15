@@ -1,9 +1,12 @@
-var Profile = require('../lib/profile'),
-  fs = require('fs');
+import { expect } from 'chai';
+import * as fs from 'fs';
 
-describe('Profile.parse', function () {
+import { Profile } from '../src';
+import { mapUserProfile } from '../src/mapUserProfile';
+
+describe('mapUserProfile', function () {
   describe('profile with image url', function () {
-    var profile;
+    let profile: Profile;
 
     before(function (done) {
       fs.readFile(
@@ -13,7 +16,7 @@ describe('Profile.parse', function () {
           if (err) {
             return done(err);
           }
-          profile = Profile.parse(data);
+          profile = mapUserProfile(data);
           done();
         }
       );
@@ -37,7 +40,7 @@ describe('Profile.parse', function () {
 
     it('should parse profile image url', function () {
       expect(profile.photos).to.have.length(1);
-      expect(profile.photos[0].value).to.equal(
+      expect(profile.photos && profile.photos[0].value).to.equal(
         'https://pbs.twimg.com/profile_images/1478302204306067462/5BEbrnPO_normal.jpg'
       );
     });

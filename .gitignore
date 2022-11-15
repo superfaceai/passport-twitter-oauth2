@@ -7,3 +7,13 @@ reports/
 # Node.js
 node_modules
 npm-debug.log
+
+# Build directory
+dist
+
+# vuepress build output
+.vuepress/dist
+
+# Yarn logs
+yarn-debug.log*
+yarn-error.log*

@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "lib": [
+            "ESNext"
+        ],
+        "rootDir": "./src",
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "strict": true,
+        "target": "es2015",
+        "typeRoots": [
+            "node_modules/@types"
+        ]
+    },
+    "include": [
+        "src/**/*.ts"
+    ]
+}
