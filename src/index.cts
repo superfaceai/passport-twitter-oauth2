@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
-// Strategy default and named export.
 import { Strategy } from './strategy';
 
 export type {
@@ -11,7 +10,7 @@ export type {
   StrategyOptionWithRequest,
   AuthenticateOptions,
 } from './models';
+export type { Strategy };
 
 exports = module.exports = Strategy;
 exports.Strategy = Strategy;
-// export = TwitterOAuth2Strategy;
