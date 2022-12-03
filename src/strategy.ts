@@ -204,7 +204,8 @@ function addDefaultScopes(scopes: string[], options: StrategyOptions) {
   }
 
   if (!skipUserProfile) {
-    scopes.push('users.read');
+    scopes.push('users.read', 'tweet.read');
+    scopes = [...new Set(scopes)];
   }
 
   return scopes;

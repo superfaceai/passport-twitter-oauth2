@@ -219,7 +219,7 @@ describe('issuing authorization request', function () {
         clientSecret: 'secret',
         callbackURL: 'https://www.example.net/auth/example/callback',
         skipUserProfile: false,
-        scope: ['tweet.read', 'tweet.write'],
+        scope: ['tweet.write'],
       },
       function (_accessToken, _refreshToken, _profile, _done) {}
     );
@@ -244,7 +244,7 @@ describe('issuing authorization request', function () {
       const parsedUrl = new URL(url);
 
       expect(parsedUrl.searchParams.get('scope')).to.equal(
-        'tweet.read tweet.write users.read'
+        'tweet.write users.read tweet.read'
       );
     });
   });
