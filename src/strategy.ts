@@ -88,6 +88,12 @@ export class Strategy extends OAuth2Strategy {
       options.customHeaders || {};
     }
 
+    let scope = options.scope || [];
+    if (!Array.isArray(scope)) {
+      scope = [scope];
+    }
+    options.scope = addDefaultScopes(scope, options);
+
     super(
       {
         ...options,
@@ -101,12 +107,6 @@ export class Strategy extends OAuth2Strategy {
     this._userProfileURL =
       options.userProfileURL ||
       'https://api.twitter.com/2/users/me?user.fields=profile_image_url,url';
-
-    let scope = options.scope || [];
-    if (!Array.isArray(scope)) {
-      scope = [scope];
-    }
-    options.scope = this.addDefaultScopes(scope, options);
   }
 
   /**
@@ -185,27 +185,27 @@ export class Strategy extends OAuth2Strategy {
       done(null, userProfileWithMetadata);
     });
   }
+}
 
-  addDefaultScopes(scopes: string[], options: StrategyOptions) {
-    let skipUserProfile = false;
-    const skipUserProfileOption = options.skipUserProfile as unknown;
+function addDefaultScopes(scopes: string[], options: StrategyOptions) {
+  let skipUserProfile = false;
+  const skipUserProfileOption = options.skipUserProfile as unknown;
 
-    if (
-      typeof skipUserProfileOption === 'function' &&
-      skipUserProfileOption.length === 1
-    ) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      skipUserProfile = skipUserProfileOption();
-    }
-
-    if (typeof skipUserProfileOption !== 'function') {
-      skipUserProfile = !!skipUserProfileOption;
-    }
-
-    if (!skipUserProfile) {
-      scopes.push('users.read');
-    }
-
-    return scopes;
+  if (
+    typeof skipUserProfileOption === 'function' &&
+    skipUserProfileOption.length === 1
+  ) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    skipUserProfile = skipUserProfileOption();
   }
+
+  if (typeof skipUserProfileOption !== 'function') {
+    skipUserProfile = !!skipUserProfileOption;
+  }
+
+  if (!skipUserProfile) {
+    scopes.push('users.read');
+  }
+
+  return scopes;
 }
