@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 1.2.1 - 2022-12-21
 ### Fixed
 - Strategy import in TypeScript projects ([#25](https://github.com/superfaceai/passport-twitter-oauth2/issues/25))
 - Strategy constructor verify callback type definition fixes
