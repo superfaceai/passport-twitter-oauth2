@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { Strategy: StrategyNamedImport } = require('..');
-const StrategyDefaultImport = require('..');
+const { Strategy: StrategyNamedImport } = require('../dist/index.cjs');
+const StrategyDefaultImport = require('../dist/index.cjs');
 
 describe('@superfaceai/passport-twitter-oauth2 package', function () {
   describe('in CommonJS project', () => {
