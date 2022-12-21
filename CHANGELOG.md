@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Fixed
+- Strategy import in TypeScript projects ([#25](https://github.com/superfaceai/passport-twitter-oauth2/issues/25))
+- Strategy constructor verify callback type definition fixes
+
 ## 1.2.0 - 2022-11-15
 ### Added
 - `confidential` client type, to comply with RFC6749 terminology

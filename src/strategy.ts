@@ -1,7 +1,7 @@
 import { Strategy as OAuth2Strategy } from 'passport-oauth2';
 
 import { mapUserProfile } from './mapUserProfile';
-import { Profile, ProfileWithMetaData } from './models/profile';
+import { ProfileWithMetaData } from './models/profile';
 import { StrategyOptions } from './models/strategyOptions';
 import { TwitterError } from './models/twitterError';
 import { TwitterUserInfoResponse } from './models/twitterUserInfo';
@@ -49,8 +49,8 @@ export class Strategy extends OAuth2Strategy {
     verify: (
       accessToken: string,
       refreshToken: string,
-      profile: Profile,
-      done: (error: Error, user?: ProfileWithMetaData) => void
+      profile: ProfileWithMetaData,
+      done: (error: Error | null, user?: ProfileWithMetaData) => void
     ) => void
   ) {
     options = options || {};

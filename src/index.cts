@@ -10,7 +10,7 @@ export type {
   StrategyOptionWithRequest,
   AuthenticateOptions,
 } from './models';
-export type { Strategy };
+export { Strategy };
 
 exports = module.exports = Strategy;
 exports.Strategy = Strategy;
