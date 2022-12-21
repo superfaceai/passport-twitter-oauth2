@@ -1,8 +1,6 @@
 import { expect } from 'chai';
 
-import StrategyDefaultImport, {
-  Strategy as StrategyNamedImport,
-} from '..';
+import StrategyDefaultImport, { Strategy as StrategyNamedImport } from '..';
 
 describe('@superfaceai/passport-twitter-oauth2 package', function () {
   describe('in TypeScript project', () => {
