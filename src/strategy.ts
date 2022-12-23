@@ -50,7 +50,7 @@ export class Strategy extends OAuth2Strategy {
       accessToken: string,
       refreshToken: string,
       profile: ProfileWithMetaData,
-      done: (error: Error | null, user?: ProfileWithMetaData) => void
+      done: (error: Error | null, user?: Express.User) => void
     ) => void
   ) {
     options = options || {};
