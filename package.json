@@ -3,7 +3,7 @@
   "version": "1.2.2",
   "description": "Twitter OAuth 2.0 authentication strategy for Passport.",
   "source": "src/index.ts",
-  "main": "./dist/index.cjs",
+  "main": "./dist/index.js",
   "repository": "git@github.com:superfaceai/passport-twitter-oauth2.git",
   "author": "Superface Team",
   "license": "MIT",
