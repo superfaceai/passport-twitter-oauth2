@@ -6,6 +6,9 @@ import { StrategyOptions } from './models/strategyOptions';
 import { TwitterError } from './models/twitterError';
 import { TwitterUserInfoResponse } from './models/twitterUserInfo';
 
+/**
+ * @public
+ */
 export class Strategy extends OAuth2Strategy {
   _userProfileURL: string;
 

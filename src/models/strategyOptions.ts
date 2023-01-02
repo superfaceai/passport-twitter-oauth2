@@ -12,12 +12,18 @@ interface TwitterStrategyOptionsBase {
   tokenURL?: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StrategyOptions
   extends TwitterStrategyOptionsBase,
     Omit<PassportOAuth2StrategyOptions, 'authorizationURL' | 'tokenURL'> {
   passReqToCallback?: false | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StrategyOptionWithRequest
   extends TwitterStrategyOptionsBase,
     Omit<
@@ -27,6 +33,9 @@ export interface StrategyOptionWithRequest
   passReqToCallback: true;
 }
 
+/**
+ * @public
+ */
 export interface AuthenticateOptions {
   scope?: string[] | string | undefined;
   state?: unknown | undefined;
