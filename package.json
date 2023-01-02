@@ -49,5 +49,9 @@
   },
   "dependencies": {
     "passport-oauth2": "^1.6.1"
+  },
+  "optionalDependencies": {
+    "@types/passport": "1.x",
+    "@types/passport-oauth2": ">=1.4"
   }
 }
