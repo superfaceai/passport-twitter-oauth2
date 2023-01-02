@@ -17,3 +17,6 @@ dist
 # Yarn logs
 yarn-debug.log*
 yarn-error.log*
+
+# API Extractor
+temp/
