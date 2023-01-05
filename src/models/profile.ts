@@ -1,9 +1,9 @@
-import * as passport from 'passport';
+import type { Profile as PassportProfile } from 'passport';
 
 /**
  * @public
  */
-export interface Profile extends passport.Profile {
+export interface Profile extends PassportProfile {
   username: string;
   profileUrl: string;
 }
