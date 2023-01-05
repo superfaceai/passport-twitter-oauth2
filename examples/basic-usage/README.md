@@ -1,5 +1,7 @@
 # Plain JavaScript example for Passport Twitter OAuth 2.0 Strategy
 
+This is a basic example of authentication flow with Passport and `@superfaceai/passport-twitter-oauth2` packages on Express server. After a successful login, the application shows user profile information and logs the access token to a console.
+
 Check [`@superfaceai/passport-twitter-oauth2`](https://github.com/superfaceai/passport-twitter-oauth2) for more info about the package and [step-by-step tutorial](https://superface.ai/blog/twitter-oauth2-passport) on setting up the Twitter application.
 
 ## Setup

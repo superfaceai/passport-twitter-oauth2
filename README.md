@@ -93,14 +93,24 @@ app.get(
 );
 ```
 
+## Examples
+
+Check the [examples](examples/) directory for minimal working projects:
+
+- [Basic usage with plain JavaScript](examples/basic-usage/)
+- [Usage with TypeScript](examples/with-typescript/)
+
+## Where It's Being Used
+
+- [twitter-demo](https://github.com/superfaceai/twitter-demo) – Demo of social media profiles for Twitter with [Superface OneSDK][one-sdk] uses this strategy to generate access tokens.
+- [social-media-demo](https://github.com/superfaceai/social-media-demo) – Demo application handling access to multiple social media sites, content publishing, reading timelines and more.
+
 ## Related Projects
 
+- [oauth2/refresh-token](https://superface.ai/oauth2/refresh-token?provider=twitter) – Profile for refreshing access tokens using [Superface OneSDK][one-sdk]
 - [passport-oauth2](https://github.com/jaredhanson/passport-oauth2) – OAuth 2.0 strategy this package builds upon.
 - [passport-twitter](https://github.com/jaredhanson/passport-twitter) – Legacy Twitter strategy which uses OAuth 1.0a.
 - [passport-twitter-oauth2](https://github.com/balanced-mt/passport-twitter-oauth2) – Original OAuth 2.0 Twitter strategy, no longer maintained.
-- [oauth2/refresh-token](https://superface.ai/oauth2/refresh-token?provider=twitter) – Profile for refreshing access tokens using [Superface OneSDK](https://github.com/superfaceai/one-sdk-js)
-- [twitter-demo](https://github.com/superfaceai/twitter-demo) – Uses this strategy to generate access tokens.
-- [social-media-demo](https://github.com/superfaceai/social-media-demo) – Demo application handling access to multiple social media sites, content publishing, reading timelines and more.
 
 ## Development
 
@@ -133,3 +143,5 @@ Feel free to contribute! Please follow the [Contribution Guide](CONTRIBUTING.md)
 `@superfaceai/passport-twitter-oauth2` project is licensed under the [MIT license](LICENSE).
 
 © 2022 Superface s.r.o.
+
+[one-sdk]: https://github.com/superfaceai/one-sdk-js

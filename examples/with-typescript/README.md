@@ -1,4 +1,8 @@
-# Plain JavaScript example for Passport Twitter OAuth 2.0 Strategy
+# TypeScript example for Passport Twitter OAuth 2.0 Strategy
+
+This is a TypeScript example with Passport and `@superfaceai/passport-twitter-oauth2` packages on Express server. The logic is the same as in [basic-usage example](../basic-usage/): After a successful login, the application shows user profile information and logs the access token to a console.
+
+Additional type dependecies for Node.js, Express, Passport, and passport-session are added for correct type checking.
 
 Check [`@superfaceai/passport-twitter-oauth2`](https://github.com/superfaceai/passport-twitter-oauth2) for more info about the package and [step-by-step tutorial](https://superface.ai/blog/twitter-oauth2-passport) on setting up the Twitter application.
 
@@ -16,7 +20,11 @@ Check [`@superfaceai/passport-twitter-oauth2`](https://github.com/superfaceai/pa
 
 ## Usage
 
-1. Start the server with
+1. Build the TypeScript files
+   ```shell
+   npm run build
+   ```
+1. Start the server
    ```shell
    npm start
    ```

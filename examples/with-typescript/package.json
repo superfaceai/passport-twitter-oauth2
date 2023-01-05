@@ -1,7 +1,7 @@
 {
   "name": "basic-usage",
   "version": "1.0.0",
-  "description": "Plain JavaScript example for Passport Twitter OAuth 2.0 Strategy",
+  "description": "TypeScript example for Passport Twitter OAuth 2.0 Strategy",
   "main": "server.js",
   "private": true,
   "scripts": {
