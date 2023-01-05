@@ -1,8 +1,9 @@
-import express from 'express';
-import passport from 'passport';
+import 'dotenv/config';
+
 import { Strategy } from '@superfaceai/passport-twitter-oauth2';
+import express from 'express';
 import session from 'express-session';
-require('dotenv').config();
+import passport from 'passport';
 
 passport.serializeUser(function (user, done) {
   done(null, user);
