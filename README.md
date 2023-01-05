@@ -29,6 +29,9 @@ npm install @superfaceai/passport-twitter-oauth2
 
 ## Usage
 
+> **Note**
+> Check our blog for a [complete tutorial with code explanation](https://superface.ai/blog/twitter-oauth2-passport?ref=github-passport-twitter-oauth2).
+
 #### Create an Application
 
 Before using `@superfaceai/passport-twitter-oauth2`, you must register a project and an application with Twitter by following these steps:
