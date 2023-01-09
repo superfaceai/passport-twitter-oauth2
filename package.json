@@ -16,11 +16,11 @@
     "clean": "rimraf dist/",
     "test": "ts-mocha -p tsconfig.json -r ./test/bootstrap/node.js --recursive 'test/**/*.{js,ts,cjs,mjs}'",
     "lint": "eslint src/ test/",
-    "lint:fix": "yarn lint --fix",
+    "lint:fix": "npm run lint -- --fix",
     "format": "prettier --check ./{src/**/*,test/**/*}",
     "format:fix": "prettier --write ./{src/**/*,test/**/*}",
-    "prebuild": "yarn clean",
-    "prepare": "yarn build"
+    "prebuild": "npm run clean",
+    "prepare": "npm run build"
   },
   "devDependencies": {
     "@types/chai": "^4.3.3",
