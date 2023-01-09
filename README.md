@@ -142,6 +142,6 @@ Feel free to contribute! Please follow the [Contribution Guide](CONTRIBUTING.md)
 
 `@superfaceai/passport-twitter-oauth2` project is licensed under the [MIT license](LICENSE).
 
-© 2022 Superface s.r.o.
+© 2023 Superface s.r.o.
 
 [one-sdk]: https://github.com/superfaceai/one-sdk-js
