@@ -20,7 +20,6 @@ passport.use(
       clientType: 'confidential',
       callbackURL: `${process.env.BASE_URL}/auth/twitter/callback`,
     },
-    // <3> Verify callback
     (accessToken, refreshToken, profile, done) => {
       console.log('Success!', { accessToken, refreshToken });
       return done(null, profile);
@@ -30,13 +29,11 @@ passport.use(
 
 const app = express();
 
-// <4> Passport and session middleware initialization
 app.use(passport.initialize());
 app.use(
   session({ secret: 'keyboard cat', resave: false, saveUninitialized: true })
 );
 
-// <5> Start authentication flow
 app.get(
   '/auth/twitter',
   passport.authenticate('twitter', {
@@ -44,7 +41,6 @@ app.get(
   })
 );
 
-// <7> Callback handler
 app.get(
   '/auth/twitter/callback',
   passport.authenticate('twitter'),
