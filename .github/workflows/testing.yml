@@ -18,6 +18,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+      - name: Update npm
+        run: npm i -g npm@9
       - name: Install npm dependencies
         run: npm ci
       - name: Run format validation
