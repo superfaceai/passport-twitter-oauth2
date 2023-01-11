@@ -10,6 +10,12 @@ jobs:
     strategy:
       matrix:
         node-version: [12, 14, 16, 18]
+        # https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#example-expanding-configurations
+        include:
+          - node-version: 12
+            npm: 8
+          - node-version: 14
+            npm: 9
 
     steps:
       - uses: actions/checkout@v3
@@ -18,8 +24,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - name: Update npm
-        run: npm i -g npm@9
+      - name: Update npm to v${{ matrix.npm }}
+        if: ${{ matrix.npm }}
+        run: npm install -g npm@${{ matrix.npm }}
       - name: Install npm dependencies
         run: npm ci
       - name: Run format validation
