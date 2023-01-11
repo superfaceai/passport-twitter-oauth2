@@ -9,11 +9,9 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12, 14, 16, 18]
+        node-version: [14, 16, 18]
         # https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#example-expanding-configurations
         include:
-          - node-version: 12
-            npm: 8
           - node-version: 14
             npm: 9
 
