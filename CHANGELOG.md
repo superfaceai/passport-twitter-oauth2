@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - TypeScript support: Added optional dependencies on `@types/passport-oauth2` and `@types/passport` for correct typing. ([#25](https://github.com/superfaceai/passport-twitter-oauth2/issues/25))
+- Missing dev dependency on `rimraf`
+
+### Changed
+- Migrate the project from Yarn to npm
 
 ## 1.2.2 - 2022-12-23
 ### Fixed

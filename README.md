@@ -116,14 +116,15 @@ Check the [examples](examples/) directory for minimal working projects:
 
 When developing, start with cloning the repository using `git clone https://github.com/superfaceai/passport-twitter-oauth2.git`.
 
-After cloning, the dependencies must be downloaded using `yarn install`.
+After cloning, install the dependencies with `npm i`.
 
 Now the repository is ready for code changes.
 
-The `package.json` also contains scripts (runnable by calling `yarn <script-name>` or `npm run <script-name>`):
+The `package.json` also contains scripts (runnable by calling `npm run <script-name>`):
 
-- `format` - format the code (use `format:fix` to run autofix)
 - `build` - transpile TypeScript into JavaScript
+- `format` - check the code formatting
+- `format:fix` - fix the code formatting
 - `lint` - run linter
 - `test` - run tests
 

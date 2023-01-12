@@ -20,8 +20,8 @@ Follow these steps:
 
 1. **Fork & Clone** the repository
 2. **Setup** the Superface passport-twitter-oauth2
-   - Install packages with `yarn install` or `npm install`
-   - Format code with `yarn format:fix` or `npm run format:fix`
+   - Install packages with `npm install`
+   - Format code with `npm run format:fix`
 3. **Update** [CHANGELOG](CHANGELOG.md). See https://keepachangelog.com/en/1.0.0/
 4. **Commit** changes to your own branch by convention. See https://www.conventionalcommits.org/en/v1.0.0/
 5. **Push** your work back up to your fork
