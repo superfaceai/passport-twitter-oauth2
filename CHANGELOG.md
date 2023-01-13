@@ -6,15 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
+
+## 1.2.3 - 2023-01-13
 ### Added
 - Examples for JavaScript and TypeScript usage (see [README](https://github.com/superfaceai/passport-twitter-oauth2/#examples))
+
+### Changed
+- Migrate the project from Yarn to npm
 
 ### Fixed
 - TypeScript support: Added optional dependencies on `@types/passport-oauth2` and `@types/passport` for correct typing. ([#25](https://github.com/superfaceai/passport-twitter-oauth2/issues/25))
 - Missing dev dependency on `rimraf`
-
-### Changed
-- Migrate the project from Yarn to npm
 
 ## 1.2.2 - 2022-12-23
 ### Fixed
