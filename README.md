@@ -5,11 +5,11 @@
 [![npm](https://img.shields.io/npm/v/@superfaceai/passport-twitter-oauth2)](https://www.npmjs.com/package/@superfaceai/passport-twitter-oauth2)
 [![license](https://img.shields.io/npm/l/@superfaceai/passport-twitter-oauth2)](LICENSE)
 ![TypeScript](https://img.shields.io/static/v1?message=TypeScript&&logoColor=ffffff&color=007acc&labelColor=5c5c5c&label=built%20with)
-[![Discord](https://img.shields.io/discord/819563244418105354?logo=discord&logoColor=fff)](https://sfc.is/discord)
+[![GitHub Discussions](https://img.shields.io/github/discussions/superfaceai/.github?logo=github&logoColor=fff)](https://github.com/orgs/superfaceai/discussions)
 
 [Passport](http://passportjs.org/) strategy for authenticating with Twitter using [OAuth 2.0](https://developer.twitter.com/en/docs/authentication/oauth-2-0).
 
-This module lets you authenticate using Twitter in your Node.js applications.
+This module lets you authenticate using Twitter in your Node.js applications.docs: Replace Discord with GH Discussions
 By plugging into Passport, Twitter authentication can be integrated into any application or framework that supports
 [Connect](http://www.senchalabs.org/connect/)-style middleware, including
 [Express](http://expressjs.com/).
