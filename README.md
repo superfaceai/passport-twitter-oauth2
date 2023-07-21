@@ -9,7 +9,7 @@
 
 [Passport](http://passportjs.org/) strategy for authenticating with Twitter using [OAuth 2.0](https://developer.twitter.com/en/docs/authentication/oauth-2-0).
 
-This module lets you authenticate using Twitter in your Node.js applications.docs: Replace Discord with GH Discussions
+This module lets you authenticate using Twitter in your Node.js applications.
 By plugging into Passport, Twitter authentication can be integrated into any application or framework that supports
 [Connect](http://www.senchalabs.org/connect/)-style middleware, including
 [Express](http://expressjs.com/).
