@@ -7,7 +7,7 @@ export type {
   Profile,
   ProfileWithMetaData,
   StrategyOptions,
-  StrategyOptionWithRequest,
+  StrategyOptionsWithRequest,
   AuthenticateOptions,
 } from './models';
 export { Strategy };

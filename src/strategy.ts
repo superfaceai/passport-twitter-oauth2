@@ -1,8 +1,17 @@
-import { Strategy as OAuth2Strategy } from 'passport-oauth2';
+import {
+  Strategy as OAuth2Strategy,
+  VerifyFunction,
+  VerifyFunctionWithRequest,
+} from 'passport-oauth2';
 
 import { mapUserProfile } from './mapUserProfile';
 import { ProfileWithMetaData } from './models/profile';
-import { StrategyOptions } from './models/strategyOptions';
+import {
+  isStrategyOptions,
+  isStrategyOptionsWithRequest,
+  StrategyOptions,
+  StrategyOptionsWithRequest,
+} from './models/strategyOptions';
 import { TwitterError } from './models/twitterError';
 import { TwitterUserInfoResponse } from './models/twitterUserInfo';
 
@@ -47,16 +56,41 @@ export class Strategy extends OAuth2Strategy {
    * ));
    * ```
    */
+  constructor(userOptions: StrategyOptions, verify: VerifyFunction);
   constructor(
-    options: StrategyOptions,
-    verify: (
-      accessToken: string,
-      refreshToken: string,
-      profile: ProfileWithMetaData,
-      done: (error: Error | null, user?: Express.User) => void
-    ) => void
+    userOptions: StrategyOptionsWithRequest,
+    verify: VerifyFunctionWithRequest
+  );
+  constructor(
+    userOptions: StrategyOptions | StrategyOptionsWithRequest,
+    verify: VerifyFunction | VerifyFunctionWithRequest
   ) {
-    options = options || {};
+    const options = Strategy.buildStrategyOptions(userOptions);
+
+    if (isStrategyOptions(options)) {
+      super(options, verify as VerifyFunction);
+    } else if (isStrategyOptionsWithRequest(options)) {
+      super(options, verify as VerifyFunctionWithRequest);
+    } else {
+      throw Error('Strategy options not supported.');
+    }
+
+    this.name = 'twitter';
+    this._userProfileURL =
+      options.userProfileURL ||
+      'https://api.twitter.com/2/users/me?user.fields=profile_image_url,url';
+
+    let scope = options.scope || [];
+    if (!Array.isArray(scope)) {
+      scope = [scope];
+    }
+    options.scope = this.addDefaultScopes(scope, options);
+  }
+
+  static buildStrategyOptions(
+    userOptions: StrategyOptions | StrategyOptionsWithRequest
+  ) {
+    const options = userOptions || {};
     options.sessionKey = options.sessionKey || 'oauth:twitter';
     const authorizationURL =
       options.authorizationURL || 'https://twitter.com/i/oauth2/authorize';
@@ -91,25 +125,11 @@ export class Strategy extends OAuth2Strategy {
       options.customHeaders || {};
     }
 
-    super(
-      {
-        ...options,
-        authorizationURL,
-        tokenURL,
-      },
-      verify
-    );
-
-    this.name = 'twitter';
-    this._userProfileURL =
-      options.userProfileURL ||
-      'https://api.twitter.com/2/users/me?user.fields=profile_image_url,url';
-
-    let scope = options.scope || [];
-    if (!Array.isArray(scope)) {
-      scope = [scope];
-    }
-    options.scope = this.addDefaultScopes(scope, options);
+    return {
+      ...options,
+      authorizationURL,
+      tokenURL,
+    };
   }
 
   /**
@@ -189,7 +209,10 @@ export class Strategy extends OAuth2Strategy {
     });
   }
 
-  addDefaultScopes(scopes: string[], options: StrategyOptions) {
+  addDefaultScopes(
+    scopes: string[],
+    options: StrategyOptions | StrategyOptionsWithRequest
+  ) {
     let skipUserProfile = false;
     const skipUserProfileOption = options.skipUserProfile as unknown;
 

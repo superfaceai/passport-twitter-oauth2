@@ -24,7 +24,7 @@ export interface StrategyOptions
 /**
  * @public
  */
-export interface StrategyOptionWithRequest
+export interface StrategyOptionsWithRequest
   extends TwitterStrategyOptionsBase,
     Omit<
       PassportOAuth2StrategyOptionsWithRequest,
@@ -32,6 +32,18 @@ export interface StrategyOptionWithRequest
     > {
   passReqToCallback: true;
 }
+
+export const isStrategyOptions = (
+  options: StrategyOptions | StrategyOptionsWithRequest
+): options is StrategyOptions => {
+  return !options.passReqToCallback;
+};
+
+export const isStrategyOptionsWithRequest = (
+  options: StrategyOptions | StrategyOptionsWithRequest
+): options is StrategyOptionsWithRequest => {
+  return options.passReqToCallback === true;
+};
 
 /**
  * @public
