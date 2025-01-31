@@ -1,0 +1,21 @@
+{
+  "name": "state-usage",
+  "version": "1.0.0",
+  "description": "Plain JavaScript example for passing state during the authentication flow with Passport Twitter OAuth 2.0 Strategy",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@superfaceai/passport-twitter-oauth2": "file:../..",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "passport": "^0.6.0"
+  }
+}
