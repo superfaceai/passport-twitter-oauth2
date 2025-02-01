@@ -37,11 +37,13 @@ app.use(
 app.get(
   '/auth/twitter',
   (req, res, next) => {
+    const stateObject = {
+      key: req.query.state
+    };
+
     passport.authenticate('twitter', {
       scope: ['tweet.read', 'users.read', 'offline.access'],
-      state: {
-        key: req.query.state
-      }
+      state: stateObject // Passing the state as an object is required by the Passport strategy
     })(req, res, next);
   }
 );
