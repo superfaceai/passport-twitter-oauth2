@@ -60,7 +60,7 @@ describe('issuing authorization request', function () {
     it('should be redirected', function () {
       const parsedUrl = new URL(url);
 
-      expect(parsedUrl.host).to.equal('twitter.com');
+      expect(parsedUrl.host).to.equal('x.com');
       expect(parsedUrl.pathname).to.equal('/i/oauth2/authorize');
       expect(parsedUrl.searchParams.get('response_type')).to.equal('code');
       expect(parsedUrl.searchParams.get('code_challenge')).to.exist;

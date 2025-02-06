@@ -93,7 +93,7 @@ export class Strategy extends OAuth2Strategy {
     const options = userOptions || {};
     options.sessionKey = options.sessionKey || 'oauth:twitter';
     const authorizationURL =
-      options.authorizationURL || 'https://twitter.com/i/oauth2/authorize';
+      options.authorizationURL || 'https://x.com/i/oauth2/authorize';
     const tokenURL =
       options.tokenURL || 'https://api.twitter.com/2/oauth2/token';
 
